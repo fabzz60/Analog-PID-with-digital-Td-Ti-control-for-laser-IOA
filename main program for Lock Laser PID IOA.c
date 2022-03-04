@@ -393,16 +393,6 @@ int lcd_display(char *disp)
     }
     return 0;
 }
-void led_blink(void)
-{
-  while(1)
-    {
-          PD7 =0x80; // make PF1 high
-          SysCtlDelay(100000); //SysCtlDelay math: 1/80Mhz = 12.6nS, 12,5*3= 37,5nS. 37,5*1000000 = 37,5ms
-          PD7 =0x00; // make PF1 low
-          SysCtlDelay(100000); 
-    }
-}
 int main(void)
 {  
     SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);  // Set the clocking to run at 80MHz from the PLL.
